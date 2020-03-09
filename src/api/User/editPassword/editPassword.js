@@ -5,8 +5,8 @@ export default {
     Mutation: {
         editPassword: async(_, args, { request, isAuthenticated }) => {
             isAuthenticated(request);
-            const { password } = args;
             const { user } = request;
+            const { password } = args;
             
             try {
                 const hsPassword = await hashPassword(password, 5)
