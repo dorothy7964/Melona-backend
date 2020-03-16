@@ -1,0 +1,7 @@
+type Mutation {
+    createBuy(
+        location: String!
+        lastDate: String!
+        categoryText: [String!]!
+    ): Post!
+}

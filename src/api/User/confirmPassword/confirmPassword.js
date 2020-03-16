@@ -4,7 +4,7 @@ import { passwordMatch } from "../../../passwordMatch";
 
  export default {
     Mutation: {
-        confirmPassword: async (_, args) => {
+        confirmPassword: async(_, args) => {
             const { email, password } = args;
             const user = await prisma.user({ email });
             if (!user){
