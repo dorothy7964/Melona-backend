@@ -31,6 +31,11 @@ export default {
             } catch {
                 return false;
             }
+        },
+        isSelf: (parent, _, { request }) => {
+            const { user } = request;
+            const { id: parentId } = parent;
+            return user.id === parentId;
         }
     }
 };
