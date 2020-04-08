@@ -3,5 +3,5 @@ type Mutation {
         location: String!
         lastDate: String!
         categoryText: [String!]!
-    ): Post!
+    ): Boolean!
 }

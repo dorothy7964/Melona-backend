@@ -5,27 +5,31 @@ export default {
         createBuy: async(_, args, { request, isAuthenticated }) => {
             isAuthenticated(request);
             const { user } = request;
-            const { location, lastDate, categoryText} = args;
+            const { location, lastDate, categoryText } = args;
             
-            const post = await prisma.createPost({
-                user: { connect: { id: user.id } },
-                location,
-                lastDate
-            });
+            try {
+                const post = await prisma.createPost({
+                    user: { connect: { id: user.id } },
+                    location,
+                    lastDate
+                });
 
-            categoryText.forEach(
-                async text =>
-                    await prisma.createCategory({
-                        text,
-                        post: {
-                            connect: {
-                                id: post.id
+                categoryText.forEach(
+                    async text =>
+                        await prisma.createCategory({
+                            text,
+                            post: {
+                                connect: {
+                                    id: post.id
+                                }
                             }
-                        }
-                    })
-            );
-
-            return post;
+                        })
+                );
+                return true;
+            } catch (e) {
+                console.log(e);
+                return false;
+            }
         }
     }
 };

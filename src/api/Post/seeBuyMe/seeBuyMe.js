@@ -2,13 +2,11 @@ import { prisma } from '../../../../generated/prisma-client';
 
 export default {
     Query: {
-        seeBuy: async (_, __, { request, isAuthenticated }) => {
-            isAuthenticated(request);
-            const { user } = request;
+        seeBuyMe: (_, __) => {
 
            return prisma.posts({
                 where: {
-                    anotherPage_not: true
+                    anotherPage: true
                 },
                 orderBy: "lastDate_DESC",
                 orderBy: "createdAt_DESC"
