@@ -1,0 +1,7 @@
+type Mutation {
+    connectReply(
+        commentId: String!
+        text: String!
+    ): Boolean!
+}
+
