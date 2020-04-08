@@ -1,0 +1,6 @@
+type Query {
+    applyContents(
+        categoryId: String!
+        userName: String!
+    ): [Contents!]!
+}

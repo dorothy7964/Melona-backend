@@ -1,0 +1,6 @@
+type Mutation {
+    createContents(
+        text: String!
+        categoryId: String!
+    ): Boolean!
+}

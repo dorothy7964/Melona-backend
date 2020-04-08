@@ -1,0 +1,6 @@
+type Mutation {
+    refuseContents(
+        userName: String!
+        postId: String!
+    ): Boolean!
+}

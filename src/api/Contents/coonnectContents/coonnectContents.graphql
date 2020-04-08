@@ -1,0 +1,7 @@
+type Mutation {
+    coonnectContents(
+        postId: String!
+        categoryText: String!
+        ContentText: String!
+    ): Contents!
+}
