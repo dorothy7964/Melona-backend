@@ -1,0 +1,5 @@
+type Mutation {
+    unConnectContentsReq (
+        postId: String!
+    ): Boolean!
+}

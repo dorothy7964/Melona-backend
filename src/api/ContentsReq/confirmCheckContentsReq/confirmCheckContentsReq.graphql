@@ -1,0 +1,6 @@
+type Query {
+    confirmCheckContentsReq (
+        contentId: String!
+        userName: String!
+    ): [ContentsReq!]!
+}
