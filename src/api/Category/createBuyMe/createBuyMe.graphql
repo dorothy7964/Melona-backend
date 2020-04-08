@@ -1,0 +1,7 @@
+type Mutation {
+    createBuyMe(
+        location: String!
+        lastDate: String!
+        categoryText: String!
+    ): Category!
+}

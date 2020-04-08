@@ -1,0 +1,7 @@
+type Mutation {
+    applyCategory (
+        location: String!
+        lastDate: String!
+        categoryText: String!
+    ): Category!
+}
