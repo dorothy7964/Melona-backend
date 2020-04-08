@@ -1,0 +1,6 @@
+type Mutation {
+    toggleReadCheck(
+        applyId: String!
+    ): Boolean!
+}
+

@@ -1,0 +1,6 @@
+type Mutation {
+    connectApply(
+        postId: String!
+    ): Boolean!
+}
+
