@@ -7,10 +7,14 @@ type User {
         @default(
             value: "https://image.flaticon.com/icons/svg/401/401155.svg"
         )
+    address: String
     following: [User!]! @relation(name: "FollowRelation")
     followers: [User!]! @relation(name: "FollowRelation")
     posts: [Post!]! @relation(name: "PostsOfUser", onDelete: CASCADE)
     comments: [Comment!]! @relation(name: "CommentsOfUser", onDelete: CASCADE)
+    recomments: [ReComment!]! @relation(name: "ReCommentsOfUser", onDelete: CASCADE)
+    contents: [Contents!]! @relation(name: "ContentsOfUser", onDelete: CASCADE)
+    contentsReq: [ContentsReq!]! @relation(name: "ContentsReqOfUser", onDelete: CASCADE)
     applys: [Apply!]! @relation(name: "ApplysOfUser", onDelete: CASCADE)
     chatRooms: [ChatRoom!]! @relation(name: "ChatRoomsOfUser", onDelete: CASCADE)
     friendRooms: [FriendRoom!]! @relation(name: "FriendRoomsOfUser", onDelete: CASCADE)
@@ -20,11 +24,13 @@ type User {
  
 type Post {
     id: ID! @id
+    viewApply: Boolean @default(value: false)
+    anotherPage: Boolean @default(value: false)
     user: User @relation(name: "PostsOfUser")
     location: String! @default(value: "무관")
-    startDate: String 
     lastDate: String!
     categorys: [Category!]! @relation(name: "CategorysOfPost", onDelete: CASCADE)
+    contents: [Contents!]! @relation(name: "ContentsOfPost", onDelete: CASCADE)
     comments: [Comment!]! @relation(name: "CommentOfPost", onDelete: CASCADE)
     applys: [Apply!]! @relation(name: "ApplysOfPost", onDelete: CASCADE)
     friendRooms: [FriendRoom!]! @relation(name: "FriendRoomsOfPost", onDelete: CASCADE)
@@ -47,17 +53,32 @@ type Contents {
     check: Boolean! @default(value: false)
     confirmCheck: Boolean! @default(value: false)
     confirmFile: String
+    user: User @relation(name: "ContentsOfUser")
+    post: Post @relation(name: "ContentsOfPost")
     category: Category @relation(name: "ContentsOfCategory")
+    contentsReqs:[ContentsReq!]!  @relation(name: "ContentsReqOfContents", onDelete: CASCADE)
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+}
+ 
+type ContentsReq {
+    id: ID! @id
+    check: Boolean! @default(value: false)
+    confirmCheck: Boolean! @default(value: false)
+    confirmFile: String
+    contents: Contents @relation(name: "ContentsReqOfContents")
+    user: User @relation(name: "ContentsReqOfUser")
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
  
 type Apply {
     id: ID! @id
-    user: User @relation(name: "ApplysOfUser")
-    post: Post @relation(name: "ApplysOfPost")
+    user: User! @relation(name: "ApplysOfUser")
+    post: Post! @relation(name: "ApplysOfPost")
     apply: Boolean! @default(value: false)
-    readCheck: Boolean! @default(value: false)
+    applyWait: Boolean @default(value: false)
+    readCheck: Boolean @default(value: false)
     progress: Boolean @default(value: false)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
@@ -68,6 +89,17 @@ type Comment {
     text: String!
     user: User @relation(name: "CommentsOfUser")
     post: Post @relation(name: "CommentOfPost")
+    reply: Boolean @default(value: false)
+    recomments: [ReComment!]! @relation(name: "ReCommentsOfComment", onDelete: CASCADE)
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+}
+ 
+type ReComment {
+    id: ID! @id
+    text: String
+    user: User @relation(name: "ReCommentsOfUser")
+    comments: Comment @relation(name: "ReCommentsOfComment")
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }

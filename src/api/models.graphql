@@ -4,6 +4,7 @@ type User {
     userName: String!
     password: String!
     avatar: String
+    address: String
     following: [User!]! 
     followers: [User!]! 
     isFollowing: Boolean!
@@ -12,6 +13,9 @@ type User {
     isSelf: Boolean!
     posts: [Post!]!
     comments: [Comment!]! 
+    recomments: [ReComment!]! 
+    contents: [Contents!]! 
+    contentsReq: [ContentsReq!]!
     applys: [Apply!]!
     chatRooms: [ChatRoom!]! 
     friendRooms: [FriendRoom!]! 
@@ -22,12 +26,20 @@ type User {
 type Post {
     id: ID! 
     user: User 
+    viewApply: Boolean 
+    anotherPage: Boolean
     location: String!
     startDate: String 
     lastDate: String!
     categorys: [Category!]! 
+    contents: [Contents!]! 
     comments: [Comment!]!
+    commentCount: Int!
     applys: [Apply!]!
+    isApply: Boolean
+    isApplyWait: Boolean
+    isApplyReadCheck: Boolean
+    applysCount: Int!
     friendRooms: [FriendRoom!]!
     createdAt: String
     updatedAt: String
@@ -48,17 +60,32 @@ type Contents {
     check: Boolean!
     confirmCheck: Boolean! 
     confirmFile: String
+    user: User
+    post: Post
     category: Category
+    contentsReqs:[ContentsReq!]!  
+    createdAt: String
+    updatedAt: String
+}
+ 
+type ContentsReq {
+    id: ID!
+    check: Boolean!
+    confirmCheck: Boolean! 
+    confirmFile: String
+    contents: Contents
+    user: User
     createdAt: String
     updatedAt: String
 }
  
 type Apply {
     id: ID!
-    user: User 
-    post: Post 
+    user: User!
+    post: Post!
     apply: Boolean!
-    readCheck: Boolean! 
+    applyWait: Boolean
+    readCheck: Boolean
     progress: Boolean
     createdAt: String
     updatedAt: String
@@ -69,6 +96,19 @@ type Comment {
     text: String!
     user: User
     post: Post
+    reply: Boolean
+    recomments: [ReComment!]!
+    reCommentCount: Int!
+    commentCount: Int!
+    createdAt: String
+    updatedAt: String
+}
+
+type ReComment {
+    id: ID!
+    text: String
+    user: User 
+    comments: Comment 
     createdAt: String
     updatedAt: String
 }
