@@ -5,6 +5,7 @@ export default {
         deleteUser: async(_, __, { request, isAuthenticated }) => {
             isAuthenticated(request);
             const { user } = request;
+            
             try {
                 await prisma.deleteUser({
                     id: user.id
@@ -14,7 +15,6 @@ export default {
                 console.log(e);
                 return false;
             }
-            
         } 
     }
 };

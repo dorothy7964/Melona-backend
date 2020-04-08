@@ -14,7 +14,7 @@ export default {
             .usersConnection({ where: { following_some: { id } } })
             .aggregate()
             .count(),
-        isFollowing: async (parent, _, { request }) => {
+        isFollowing: (parent, _, { request }) => {
             const { user } = request;
             const { id: parentId } = parent;
             try {
