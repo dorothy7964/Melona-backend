@@ -10,8 +10,7 @@ export default {
                 where: {
                     anotherPage_not: true
                 },
-                orderBy: "lastDate_DESC",
-                orderBy: "createdAt_DESC"
+                orderBy: "lastDate_DESC"
             });
         }
     }

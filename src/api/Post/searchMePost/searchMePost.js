@@ -16,8 +16,7 @@ export default {
                     { lastDate_starts_with: args.term }
                 ]
             },
-            orderBy: "lastDate_DESC",
-            orderBy: "createdAt_DESC"
+            orderBy: "lastDate_DESC"
         })
     }
 };

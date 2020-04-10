@@ -8,8 +8,7 @@ export default {
                 where: {
                     anotherPage: true
                 },
-                orderBy: "lastDate_DESC",
-                orderBy: "createdAt_DESC"
+                orderBy: "lastDate_DESC"
             });
         }
     }

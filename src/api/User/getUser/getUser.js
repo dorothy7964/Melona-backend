@@ -2,7 +2,7 @@ import { prisma } from "../../../../generated/prisma-client";
 
 export default {
     Query: {
-        oneUser: async(_, args) => {
+        getUser: async(_, args) => {
             const { userName } = args;
             const exists = await prisma.$exists.user({userName});
                 

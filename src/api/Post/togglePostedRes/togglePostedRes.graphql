@@ -1,0 +1,5 @@
+type Query {
+    togglePostedRes (
+        tab: String!
+    ): [Post!]!
+}
