@@ -5,7 +5,7 @@ export default {
         createBuyMe: async(_, args, { request, isAuthenticated }) => {
             isAuthenticated(request);
             const { user } = request;
-            const { location, lastDate, categoryText } = args;
+            const { location, lastDate, categoryText, contentText } = args;
             
             try {
                 const post = await prisma.createPost({
@@ -15,13 +15,22 @@ export default {
                     lastDate
                 });
 
-                return await prisma.createCategory({
+                const category = await prisma.createCategory({
                     text: categoryText,
                     post: {
                         connect: {
                             id: post.id
                         }
                     }
+                });
+
+                return prisma.createContents({
+                    category: {
+                        connect: {
+                            id: category.id
+                        }
+                    },
+                    text: contentText
                 })
             } catch (e) {
                 console.log(e);

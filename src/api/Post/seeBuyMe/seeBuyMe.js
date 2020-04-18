@@ -4,7 +4,7 @@ export default {
     Query: {
         seeBuyMe: (_, __) => {
 
-           return prisma.posts({
+            return prisma.posts({
                 where: {
                     anotherPage: true
                 },

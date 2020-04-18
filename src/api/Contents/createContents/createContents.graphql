@@ -1,6 +1,7 @@
 type Mutation {
     createContents(
-        text: String!
-        categoryId: String!
-    ): Boolean!
+        postId: String!
+        categoryText: String!
+        contentText: String!
+    ): Contents!
 }

@@ -2,30 +2,25 @@ import { prisma } from '../../../../generated/prisma-client';
 
 export default {
     Mutation: {
-        createContents: async(_, args, { request, isAuthenticated }) => {
-            isAuthenticated(request);
-            const { user } = request;
-            const { text, categoryId } = args;
-
-            try {
-                await prisma.createContents({
-                    user: {
-                        connect: {
-                            id: user.id
-                        }
-                    },
-                    category: {
-                        connect: {
-                            id: categoryId
-                        }
-                    },
-                    text
-                });
-                return true;
-            } catch(e) {
-                console.log(e);
-                return false;
-            }
+        createContents: async(_, args) => {
+            const { postId, categoryText, contentText } = args;
+            
+            const category = await prisma.createCategory({
+                post: {
+                    connect: {
+                        id: postId
+                    }
+                },
+                text: categoryText
+            });
+            return await prisma.createContents({
+                category: {
+                    connect: {
+                        id: category.id
+                    }
+                },
+                text: contentText
+            });
         }
     }
 };

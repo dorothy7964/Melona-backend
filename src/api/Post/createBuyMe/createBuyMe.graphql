@@ -3,5 +3,6 @@ type Mutation {
         location: String!
         lastDate: String!
         categoryText: String!
-    ): Category!
+        contentText: String!
+    ): Contents!
 }
