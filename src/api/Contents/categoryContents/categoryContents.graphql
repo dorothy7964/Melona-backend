@@ -1,0 +1,7 @@
+type Query {
+    categoryContents (
+        categoryId: String!
+        userName: String!
+        anotherPage: Boolean!
+    ): [Contents!]!
+}
