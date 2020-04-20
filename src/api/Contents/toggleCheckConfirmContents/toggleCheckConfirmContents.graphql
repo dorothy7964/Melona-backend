@@ -1,5 +1,5 @@
 type Mutation {
-    toggleCheckContents (
+    toggleCheckConfirmContents (
         contentId: String!
     ): Boolean!
 }

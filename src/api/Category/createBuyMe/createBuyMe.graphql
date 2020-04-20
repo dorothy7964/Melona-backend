@@ -1,0 +1,7 @@
+type Query {
+    createBuyMe(
+        location: String!
+        lastDate: String!
+        categoryText: String!
+    ): Category!
+}

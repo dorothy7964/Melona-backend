@@ -2,21 +2,21 @@ import { prisma } from '../../../../generated/prisma-client';
 
 export default {
     Mutation: {
-        toggleCheckContents : async(_, args) => {
+        toggleCheckConfirmContents : async(_, args) => {
             const { contentId } = args;
 
             try {
                 const content = await prisma.$exists.contents({
                     AND: [
                         { id: contentId },
-                        { check: true }
+                        { confirmCheck: true }
                     ]
                 });
 
                 if (content) {
                     await prisma.updateContents({
                         data: {
-                            check: false
+                            confirmCheck: false
                         },
                         where: {
                             id: contentId
@@ -25,7 +25,7 @@ export default {
                 } else {
                     await prisma.updateContents({
                         data: {
-                            check: true
+                            confirmCheck: true
                         },
                         where: {
                             id: contentId

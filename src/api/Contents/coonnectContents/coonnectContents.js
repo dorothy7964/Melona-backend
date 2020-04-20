@@ -19,7 +19,8 @@ export default {
                             id: categoryId
                         }
                     },
-                    text
+                    text,
+                    check: true
                 });
                 return true;
             } catch(e) {
