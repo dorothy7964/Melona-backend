@@ -1,0 +1,7 @@
+type Mutation {
+    progressNum(
+        contentId: String!
+        anotherPage: Boolean!
+        stepNum: Int!
+    ): Boolean!
+}

@@ -1,0 +1,6 @@
+type Mutation {
+    progressApplyMe(
+        postId: String!
+    ): Boolean!
+}
+
