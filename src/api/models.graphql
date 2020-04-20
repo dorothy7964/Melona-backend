@@ -36,10 +36,12 @@ type Post {
     comments: [Comment!]!
     commentCount: Int!
     applys: [Apply!]!
+    applysRead: [Apply!]!
     isApply: Boolean
     isApplyWait: Boolean
     isApplyReadCheck: Boolean
     applysCount: Int!
+    applysReadCount: Int!
     friendRooms: [FriendRoom!]!
     createdAt: String
     updatedAt: String
@@ -60,6 +62,7 @@ type Contents {
     check: Boolean!
     confirmCheck: Boolean! 
     confirmFile: String
+    confirmProgress: Int 
     user: User
     post: Post
     category: Category
@@ -73,6 +76,7 @@ type ContentsReq {
     check: Boolean!
     confirmCheck: Boolean! 
     confirmFile: String
+    confirmProgress: Int 
     contents: Contents
     user: User
     createdAt: String

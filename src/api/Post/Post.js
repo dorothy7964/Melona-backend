@@ -27,6 +27,23 @@ export default {
                 ]
             });
         },
+        applysRead: (parent) => {
+            const { id } = parent;
+            return prisma.applies({
+                where: {
+                    AND: [
+                        {
+                            readCheck: true
+                        },
+                        {
+                            post: {
+                                id
+                            }
+                        }
+                    ]
+                }
+            });
+        },
         isApplyWait: (parent, _, { request }) => {
             const { user } = request;
             const { id } = parent;
@@ -73,6 +90,18 @@ export default {
             prisma
             .appliesConnection({
                 where: { post: { id: parent.id } }
+            })
+            .aggregate()
+            .count(),
+        applysReadCount: parent =>
+            prisma
+            .appliesConnection({
+                where: {
+                    AND: [
+                        {post: { id: parent.id }},
+                        { readCheck: true }
+                    ]
+                }
             })
             .aggregate()
             .count(),

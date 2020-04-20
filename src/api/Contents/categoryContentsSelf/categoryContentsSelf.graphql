@@ -1,0 +1,6 @@
+type Query {
+    categoryContentsSelf (
+        categoryId: String!
+        anotherPage: Boolean!
+    ): [Contents!]!
+}
