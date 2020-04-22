@@ -5,33 +5,33 @@ export default {
         toggleFollow: async(_, args, { request, isAuthenticated }) => {
             isAuthenticated(request);
             const { user } = request;
-            const { id } = args;
+            const { userName } = args;
             
             try {
                 const existingFollow = await prisma.$exists.user({
                     AND: [
-                        { id: user.id} ,
-                        { following_some: { id } }
+                        { userName: user.userName} ,
+                        { following_some: { userName } }
                     ]
                 });
                 if (existingFollow) {
                     await prisma.updateUser({
-                        where: { id: user.id },
+                        where: { userName: user.userName },
                         data: {
                             following: {
                                 disconnect: {
-                                    id
+                                    userName
                                 }
                             }
                         }
                     });
                 } else {
                     await prisma.updateUser({
-                        where: { id: user.id },
+                        where: { userName: user.userName },
                         data: {
                             following: {
                                 connect: {
-                                    id
+                                    userName
                                 }
                             }
                         }
