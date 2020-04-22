@@ -7,7 +7,6 @@ export default {
         contents: ({ id }) => prisma.post({ id }).contents(),
         comments: ({ id }) => prisma.post({ id }).comments(),
         comments: ({ id }) => prisma.post({ id }).comments(),
-        friendRooms: ({ id }) => prisma.post({ id }).friendRooms(),
         applys: ({ id }) => prisma.post({ id }).applys(),
         isApply: (parent, _, { request }) => {
             const { user } = request;

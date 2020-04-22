@@ -18,7 +18,7 @@ type User {
     contentsReq: [ContentsReq!]!
     applys: [Apply!]!
     chatRooms: [ChatRoom!]! 
-    friendRooms: [FriendRoom!]! 
+    groupRooms: [GroupRoom!]! 
     createdAt: String
     updatedAt: String
 }
@@ -28,6 +28,7 @@ type Post {
     user: User 
     viewApply: Boolean 
     anotherPage: Boolean
+    groupRoom: String
     location: String!
     startDate: String 
     lastDate: String!
@@ -42,7 +43,6 @@ type Post {
     isApplyReadCheck: Boolean
     applysCount: Int!
     applysReadCount: Int!
-    friendRooms: [FriendRoom!]!
     createdAt: String
     updatedAt: String
 }
@@ -138,11 +138,12 @@ type Message {
     updatedAt: String
 }
  
-type FriendRoom {
+type GroupRoom {
     id: ID!
     roomName: String!
+    founderUser: String!
+    coverPhoto: String
     participants: [User!]!
-    post: Post
     createdAt: String
     updatedAt: String
 }

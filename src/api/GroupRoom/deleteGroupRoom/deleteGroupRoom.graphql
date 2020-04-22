@@ -1,0 +1,5 @@
+type Mutation {
+    deleteGroupRoom (
+        groupRoomId: String!
+    ): Boolean!
+}

@@ -1,0 +1,9 @@
+type Mutation {
+    createBuyMeGroup (
+        groupRoomId: String!
+        location: String!
+        lastDate: String!
+        categoryText: String!
+        contentText: String!
+    ): Contents!
+}

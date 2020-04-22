@@ -1,0 +1,8 @@
+type Mutation {
+    createBuyGroup (
+        groupRoomId: String!
+        location: String!
+        lastDate: String!
+        categoryText: [String!]!
+    ): Boolean!
+}

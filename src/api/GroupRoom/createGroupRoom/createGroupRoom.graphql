@@ -1,0 +1,7 @@
+type Mutation {
+    createGroupRoom (
+        coverPhoto: String
+        roomName: String!
+        userName: [String!]!
+    ): Boolean!
+}

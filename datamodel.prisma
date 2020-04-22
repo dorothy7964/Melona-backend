@@ -17,7 +17,7 @@ type User {
     contentsReq: [ContentsReq!]! @relation(name: "ContentsReqOfUser", onDelete: CASCADE)
     applys: [Apply!]! @relation(name: "ApplysOfUser", onDelete: CASCADE)
     chatRooms: [ChatRoom!]! @relation(name: "ChatRoomsOfUser", onDelete: CASCADE)
-    friendRooms: [FriendRoom!]! @relation(name: "FriendRoomsOfUser", onDelete: CASCADE)
+    groupRooms: [GroupRoom!]! @relation(name: "GroupRoomOfUser", onDelete: CASCADE)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -26,6 +26,7 @@ type Post {
     id: ID! @id
     viewApply: Boolean @default(value: false)
     anotherPage: Boolean @default(value: false)
+    groupRoom: String
     user: User @relation(name: "PostsOfUser")
     location: String! @default(value: "무관")
     lastDate: String!
@@ -33,7 +34,6 @@ type Post {
     contents: [Contents!]! @relation(name: "ContentsOfPost", onDelete: CASCADE)
     comments: [Comment!]! @relation(name: "CommentOfPost", onDelete: CASCADE)
     applys: [Apply!]! @relation(name: "ApplysOfPost", onDelete: CASCADE)
-    friendRooms: [FriendRoom!]! @relation(name: "FriendRoomsOfPost", onDelete: CASCADE)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -127,11 +127,15 @@ type Message {
     updatedAt: DateTime! @updatedAt
 }
  
-type FriendRoom {
+type GroupRoom {
     id: ID! @id
     roomName: String!
-    participants: [User!]! @relation(name: "FriendRoomsOfUser") 
-    post: Post @relation(name: "FriendRoomsOfPost")
+    founderUser: String! 
+    coverPhoto: String
+        @default(
+            value: "https://pbs.twimg.com/profile_images/926440213475246080/BkBTGG8b_400x400.jpg"
+        )
+    participants: [User!]! @relation(name: "GroupRoomOfUser") 
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
