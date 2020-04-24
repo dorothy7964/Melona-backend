@@ -4,6 +4,7 @@ export default {
     Query: {
         getUser: async(_, args) => {
             const { userName } = args;
+            
             const exists = await prisma.$exists.user({userName});
                 
             if (exists) {

@@ -6,7 +6,3 @@ type Mutation {
         avatar: String
     ): Boolean!
 }
-
-type Query {
-    createAccount: String!
-}

@@ -9,7 +9,7 @@ export default {
             const { password } = args;
             
             try {
-                const hsPassword = await hashPassword(password, 5)
+                const hsPassword = await hashPassword(password, 5);
                 await prisma.updateUser({
                     data: { password: hsPassword }, 
                     where: { id: user.id } 
