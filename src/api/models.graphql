@@ -121,6 +121,7 @@ type ChatRoom {
     id: ID!
     participants: [User!]!
     messages: [Message!]! 
+    unReadMsgCounter: Int!
     lastMessage: String
     lastMsgTime: String
     createdAt: String
