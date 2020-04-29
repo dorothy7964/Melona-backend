@@ -1,0 +1,7 @@
+type Mutation {
+    sendMessage (
+        chatRoomId: String, 
+        message: String!, 
+        userName: String
+    ): Message
+}
