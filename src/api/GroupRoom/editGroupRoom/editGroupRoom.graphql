@@ -1,0 +1,7 @@
+type Mutation {
+    editGroupRoom (
+        groupRoomId: String!
+        coverPhoto: String
+        roomName: String
+    ): Boolean!
+}

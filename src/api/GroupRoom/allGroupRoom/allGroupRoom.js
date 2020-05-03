@@ -8,8 +8,10 @@ export default {
             
             return prisma.groupRooms({
                 where: {
-                    participants_some: {
-                        userName: user.userName
+                    groupRoomMember_some: {
+                        participants_some: {
+                            userName: user.userName
+                        }
                     }
                 },
                 orderBy: "createdAt_DESC"

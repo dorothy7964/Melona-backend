@@ -2,13 +2,14 @@ import { prisma } from '../../../../generated/prisma-client';
 
 export default {
     Mutation: {
-        editPhotoGroupRoom: async(_, args) => {
-            const { groupRoomId, coverPhoto } = args;
+        editGroupRoom: async(_, args) => {
+            const { groupRoomId, coverPhoto, roomName } = args;
             
             try {
                 await prisma.updateGroupRoom({
                     data: {
-                        coverPhoto
+                        coverPhoto,
+                        roomName
                     },
                     where: {
                         id: groupRoomId

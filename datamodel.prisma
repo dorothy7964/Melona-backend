@@ -17,7 +17,8 @@ type User {
     contentsReq: [ContentsReq!]! @relation(name: "ContentsReqOfUser", onDelete: CASCADE)
     applys: [Apply!]! @relation(name: "ApplysOfUser", onDelete: CASCADE)
     chatRooms: [ChatRoom!]! @relation(name: "ChatRoomsOfUser", onDelete: CASCADE)
-    groupRooms: [GroupRoom!]! @relation(name: "GroupRoomOfUser", onDelete: CASCADE)
+    groupRooms: [GroupRoom!]! @relation(name: "GroupRoomsOfUser", onDelete: CASCADE)
+    groupRoomMember: [GroupRoomMember!]! @relation(name: "GroupRoomMemberOfUser", onDelete: CASCADE)
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }
@@ -26,7 +27,7 @@ type Post {
     id: ID! @id
     viewApply: Boolean @default(value: false)
     anotherPage: Boolean @default(value: false)
-    groupRoom: String
+    groupRoom: Boolean @default(value: false)
     user: User @relation(name: "PostsOfUser")
     location: String! @default(value: "무관")
     lastDate: String!
@@ -130,12 +131,20 @@ type Message {
 type GroupRoom {
     id: ID! @id
     roomName: String!
-    founderUser: String! 
+    founderUser: User! @relation(name: "GroupRoomsOfUser")
     coverPhoto: String
         @default(
             value: "https://pbs.twimg.com/profile_images/926440213475246080/BkBTGG8b_400x400.jpg"
         )
-    participants: [User!]! @relation(name: "GroupRoomOfUser") 
+    groupRoomMember: [GroupRoomMember!]! @relation(name: "GroupRoomMemberOfGroupRoom", onDelete: CASCADE)
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+}
+
+type GroupRoomMember {
+    id: ID! @id
+    groupRoom: GroupRoom! @relation(name: "GroupRoomMemberOfGroupRoom")
+    participants: [User!]! @relation(name: "GroupRoomMemberOfUser") 
     createdAt: DateTime! @createdAt
     updatedAt: DateTime! @updatedAt
 }

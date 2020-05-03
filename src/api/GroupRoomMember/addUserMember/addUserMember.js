@@ -2,13 +2,13 @@ import { prisma } from '../../../../generated/prisma-client';
 
 export default {
     Mutation: {
-        addUserGroupRoom: (_, args) => {
-            const { groupRoomId, userName } = args;
+        addUserMember: (_, args) => {
+            const { groupMemeberId, userName } = args;
             
             try {
                 userName.forEach(
                     async userName =>
-                        await prisma.updateGroupRoom({
+                        await prisma.updateGroupRoomMember({
                             data: {
                                 participants: {
                                     connect: {
@@ -17,7 +17,7 @@ export default {
                                 }
                             },
                             where: {
-                                id: groupRoomId
+                                id: groupMemeberId
                             }
                         })
                 )

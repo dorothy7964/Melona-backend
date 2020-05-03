@@ -11,7 +11,19 @@ export default {
                 const groupRoom = await prisma.createGroupRoom({
                     coverPhoto,
                     roomName,
-                    founderUser: user.userName,
+                    founderUser: {
+                        connect: {
+                            userName: user.userName
+                        }
+                    }
+                });
+
+                const groupRoomMember = await prisma.createGroupRoomMember({
+                    groupRoom: {
+                        connect: {
+                            id: groupRoom.id     
+                        }
+                    },
                     participants: {
                         connect: {
                             userName: user.userName
@@ -21,7 +33,7 @@ export default {
 
                 userName.forEach(
                     async userName =>
-                        await prisma.updateGroupRoom({
+                        await prisma.updateGroupRoomMember({
                             data: {
                                 participants: {
                                     connect: {
@@ -29,9 +41,7 @@ export default {
                                     }
                                 }
                             },
-                            where: {
-                                id: groupRoom.id
-                            }
+                            where:{ id: groupRoomMember.id }
                         })
                 );
 

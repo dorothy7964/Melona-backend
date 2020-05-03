@@ -19,6 +19,7 @@ type User {
     applys: [Apply!]!
     chatRooms: [ChatRoom!]! 
     groupRooms: [GroupRoom!]! 
+    groupRoomMember: [GroupRoomMember!]!
     createdAt: String
     updatedAt: String
 }
@@ -28,7 +29,7 @@ type Post {
     user: User 
     viewApply: Boolean 
     anotherPage: Boolean
-    groupRoom: String
+    groupRoom: Boolean
     location: String!
     startDate: String 
     lastDate: String!
@@ -142,9 +143,17 @@ type Message {
 type GroupRoom {
     id: ID!
     roomName: String!
-    founderUser: String!
+    founderUser: User!
     coverPhoto: String
-    participants: [User!]!
+    groupRoomMember: [GroupRoomMember!]!
+    createdAt: String
+    updatedAt: String
+}
+
+type GroupRoomMember {
+    id: ID!
+    groupRoom: GroupRoom!
+    participants: [User!]! 
     createdAt: String
     updatedAt: String
 }

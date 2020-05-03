@@ -2,6 +2,7 @@ import { prisma } from "../../../generated/prisma-client";
 
 export default {
     GroupRoom: {
-        participants: ({ id }) => prisma.groupRoom({ id }).participants()
+        groupRoomMember: ({ id }) => prisma.groupRoom({ id }).groupRoomMember(),
+        founderUser: ({ id }) => prisma.groupRoom({ id }).founderUser(),
     }
 };

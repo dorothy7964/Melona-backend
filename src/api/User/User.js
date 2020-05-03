@@ -2,6 +2,8 @@ import { prisma } from "../../../generated/prisma-client";
 
 export default {
     User: {
+        groupRooms: ({ id }) => prisma.user({ id }).groupRooms(),
+        groupRoomMember: ({ id }) => prisma.user({ id }).groupRoomMember(),
         following: ({ id }) => prisma.user({ id }).following(),
         followers: ({ id }) => prisma.user({ id }).followers(),
         followingCount: ({ id }) =>

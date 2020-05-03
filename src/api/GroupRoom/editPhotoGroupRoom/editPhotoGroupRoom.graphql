@@ -1,6 +1,0 @@
-type Mutation {
-    editPhotoGroupRoom (
-        groupRoomId: String!
-        coverPhoto: String!
-    ): Boolean!
-}
