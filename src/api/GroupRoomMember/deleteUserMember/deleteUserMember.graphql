@@ -1,0 +1,6 @@
+type Mutation {
+    deleteUserMember (
+        groupMemberId: String!
+        userNameArr: [String!]!
+    ): Boolean!
+}
