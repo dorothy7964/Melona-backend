@@ -1,6 +1,6 @@
 type Mutation {
     addUserMember (
-        groupMemeberId: String!
-        userName: [String!]!
+        groupMemberId: String!
+        userNameArr: [String!]!
     ): Boolean!
 }
