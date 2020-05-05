@@ -29,7 +29,7 @@ type Post {
     user: User 
     viewApply: Boolean 
     anotherPage: Boolean
-    groupRoom: Boolean
+    groupRoom: String
     location: String!
     startDate: String 
     lastDate: String!

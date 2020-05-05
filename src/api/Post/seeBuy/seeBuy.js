@@ -6,7 +6,10 @@ export default {
 
             return prisma.posts({
                 where: {
-                    anotherPage_not: true
+                    AND: [
+                        { anotherPage_not: true },
+                        { groupRoom: "none" }
+                    ]
                 },
                 orderBy: "lastDate_DESC"
             });

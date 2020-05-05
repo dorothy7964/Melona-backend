@@ -27,7 +27,7 @@ type Post {
     id: ID! @id
     viewApply: Boolean @default(value: false)
     anotherPage: Boolean @default(value: false)
-    groupRoom: Boolean @default(value: false)
+    groupRoom: String @default(value: "none")
     user: User @relation(name: "PostsOfUser")
     location: String! @default(value: "무관")
     lastDate: String!
