@@ -1,0 +1,6 @@
+type Query {
+    searchMePostGroup (
+        groupRoomId: String!
+        term: String!
+    ): [Post!]!
+}

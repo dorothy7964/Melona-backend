@@ -5,6 +5,7 @@ export default {
         searchPost: async(_, args) => prisma.posts({
             where: {
                 anotherPage: false,
+                groupRoom: "none",
                 OR: [
                     { user: {
                         userName_starts_with: args.term
