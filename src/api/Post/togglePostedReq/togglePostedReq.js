@@ -16,7 +16,8 @@ export default {
                                     id: user.id
                                 }
                             }},
-                            { anotherPage: false }
+                            { anotherPage: false },
+                            { groupRoom: "none" }
                        ]
                     },
                     orderBy: "lastDate_DESC"
@@ -30,7 +31,8 @@ export default {
                                     id: user.id
                                 }
                             }},
-                            { anotherPage: true }
+                            { anotherPage: true },
+                            { groupRoom: "none" }
                        ]
                     },
                     orderBy: "lastDate_DESC"
