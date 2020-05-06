@@ -1,0 +1,6 @@
+type Query {
+    togglePostedResGroup (
+        groupRoomId: String!
+        tab: String!
+    ): [Post!]!
+}
