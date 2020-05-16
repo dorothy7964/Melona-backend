@@ -2,17 +2,16 @@ import { prisma } from "../../../../generated/prisma-client";
 
 export default {
     Mutation: {
-        editUser: async(_, args, { request, isAuthenticated }) => {
+        editAvatar: async(_, args, { request, isAuthenticated }) => {
             isAuthenticated(request);
             const { user } = request;
-            const { userName, email } = args;
+            const { avatar } = args;
 
            try {
                 return prisma.updateUser({
                     where: { id: user.id },
                     data: { 
-                        userName, 
-                        email,
+                        avatar
                     }
                 });
            } catch (e) {
