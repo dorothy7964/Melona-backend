@@ -1,0 +1,6 @@
+type Mutation {
+    editConfirmFile (
+        contentId: String!
+        confirmFile: String!
+    ): Contents!
+}

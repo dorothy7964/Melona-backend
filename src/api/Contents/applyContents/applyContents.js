@@ -6,12 +6,12 @@ export default {
             const { categoryId, userName } = args;
 
             return prisma.contentses({
-               where: {
-                   AND: [
-                       { category: { id: categoryId } },
-                       { user: { userName } }
-                   ]
-               } 
+                where: {
+                    AND: [
+                        { category: { id: categoryId } },
+                        { user: { userName } }
+                    ]
+                } 
             });
         }
     }
