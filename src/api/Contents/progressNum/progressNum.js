@@ -5,9 +5,9 @@ export default {
         progressNum: async(_, args) => {
             const { contentId, anotherPage, stepNum } = args;
 
-            if (anotherPage !== true){
-                try {
-                    await prisma.updateContents({
+            try {
+                if (anotherPage){
+                    await prisma.updateManyContentsReqs({
                         data: {
                             confirmProgress: stepNum
                         },
@@ -17,13 +17,8 @@ export default {
                     });
     
                     return true;
-                } catch (e) {
-                    console.log(e);
-                    return false;
-                }
-            } else {
-                try {
-                    await prisma.updateContentsReq({
+                } else {
+                    await prisma.updateManyContentses({
                         data: {
                             confirmProgress: stepNum
                         },
@@ -31,12 +26,12 @@ export default {
                             id: contentId
                         }
                     });
-    
+
                     return true;
-                } catch (e) {
-                    console.log(e);
-                    return false;
                 }
+            } catch (e) {
+                console.log(e);
+                return false;
             }
         }
     }

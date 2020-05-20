@@ -2,17 +2,38 @@ import { prisma } from '../../../../generated/prisma-client';
 
 export default {
     Mutation: {
-        editConfirmFile: (_, args) => {
-            const { contentId, confirmFile } = args;
+        editConfirmFile: async(_, args) => {
+            const { contentId, confirmFile, anotherPage } = args;
 
-            return prisma.updateContents({
-                data: {
-                    confirmFile
-                },
-                where: {
-                    id: contentId
-                } 
-            });
+            try {
+                if (anotherPage) {
+                    await prisma.updateManyContentsReqs({
+                        data: {
+                            confirmFile
+                        },
+                        where: {
+                            id: contentId
+                        }                 
+                    });
+
+                   return true;
+                } else {
+                    await prisma.updateContents({
+                        data: {
+                            confirmFile
+                        },
+                        where: {
+                            id: contentId
+                        } 
+                    });
+
+                    return true;
+                }
+            } catch (e) {
+                console.log(e);
+                return false;
+            }
+            
         }
     }
 };
