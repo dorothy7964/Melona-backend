@@ -5,10 +5,12 @@ export default {
         togglePostedRes: async(_, args, { request, isAuthenticated }) => {
             isAuthenticated(request);
             const { user } = request;
-            const { tab } = args;
+            const { tab, items, pageNumber } = args;
 
             if (tab === "daddy") {
                 return prisma.posts({
+                    first: items,
+                    skip: pageNumber,
                     where: {
                        AND: [
                             { user: {
@@ -22,6 +24,8 @@ export default {
                 });
             } else {
                 return prisma.posts({
+                    first: items,
+                    skip: pageNumber,
                     where: {
                        AND: [
                             { user: {
