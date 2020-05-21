@@ -6,7 +6,7 @@ export default {
             const { contentId, confirmFile, anotherPage } = args;
 
             try {
-                if (anotherPage === true) {
+                if (anotherPage) {
                     await prisma.updateManyContentsReqs({
                         data: {
                             confirmFile
