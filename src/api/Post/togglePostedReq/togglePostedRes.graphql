@@ -1,5 +1,7 @@
 type Query {
     togglePostedReq (
         tab: String!
+        items: Int
+        pageNumber: Int
     ): [Post!]!
 }
