@@ -1,7 +1,5 @@
 type Query {
     seeBuyGroup (
         groupRoomId: String!
-        items: Int
-        pageNumber: Int
     ): [Post!]!
 }
