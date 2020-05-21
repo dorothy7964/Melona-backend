@@ -6,7 +6,7 @@ export default {
             const { contentId, anotherPage, stepNum } = args;
 
             try {
-                if (anotherPage){
+                if (anotherPage === true){
                     await prisma.updateManyContentsReqs({
                         data: {
                             confirmProgress: stepNum
