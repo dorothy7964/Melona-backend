@@ -1,5 +1,5 @@
 type Mutation {
-    connectApply (
+    falseApply (
         postId: String!
     ): Boolean!
 }
