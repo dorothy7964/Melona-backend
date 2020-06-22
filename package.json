@@ -1,6 +1,9 @@
 {
   "name": "melona-backend",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.16.3"
+  },
   "description": "Small Agency Service with Express + Prisma + React and React Native",
   "repository": "https://github.com/dorothy7964/melona-backend.git",
   "author": "sample <dorothy_007@naver.com>",
