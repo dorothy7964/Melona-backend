@@ -4842,6 +4842,11 @@ no-case@^2.2.0:
   dependencies:
     lower-case "^1.1.1"
 
+node-bin-setup@^1.0.0:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/node-bin-setup/-/node-bin-setup-1.0.6.tgz#4b5c9bb937ece702d7069b36ca78af4684677528"
+  integrity sha512-uPIxXNis1CRbv1DwqAxkgBk5NFV3s7cMN/Gf556jSw6jBvV7ca4F9lRL/8cALcZecRibeqU+5dFYqFFmzv5a0Q==
+
 node-emoji@^1.4.1:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/node-emoji/-/node-emoji-1.10.0.tgz#8886abd25d9c7bb61802a658523d1f8d2a89b2da"
@@ -4902,6 +4907,13 @@ node-releases@^1.1.50:
   integrity sha512-lgAmPv9eYZ0bGwUYAKlr8MG6K4CvWliWqnkcT2P8mMAgVrH3lqfBPorFlxiG1pHQnqmavJZ9vbMXUTNyMLbrgQ==
   dependencies:
     semver "^6.3.0"
+
+node@12.16.3:
+  version "12.16.3"
+  resolved "https://registry.yarnpkg.com/node/-/node-12.16.3.tgz#f86f1954499efa75ec3336ad5c671f9db4cfe3d6"
+  integrity sha512-X7zR8j0jPSkO9zbe02k/ow6ipv+EQq1uyMfI4ZctyFUHpzOtONbaaLuKIJMAJwSrL6PlHtRPgC0bwnSVD46Aew==
+  dependencies:
+    node-bin-setup "^1.0.0"
 
 nodemailer-sendgrid-transport@^0.2.0:
   version "0.2.0"
