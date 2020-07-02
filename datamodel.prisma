@@ -53,7 +53,7 @@ type Contents {
     text: String!
     check: Boolean! @default(value: false)
     confirmCheck: Boolean! @default(value: false)
-    confirmFile: String
+    confirmFile: String @default(value: "none")
     confirmProgress: Int @default(value: 0)
     user: User @relation(name: "ContentsOfUser")
     post: Post @relation(name: "ContentsOfPost")
@@ -67,7 +67,7 @@ type ContentsReq {
     id: ID! @id
     check: Boolean! @default(value: false)
     confirmCheck: Boolean! @default(value: false)
-    confirmFile: String
+    confirmFile: String @default(value: "none")
     confirmProgress: Int @default(value: 0)
     contents: Contents @relation(name: "ContentsReqOfContents")
     user: User @relation(name: "ContentsReqOfUser")
