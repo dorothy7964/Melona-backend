@@ -111,5 +111,22 @@ export default {
             })
             .aggregate()
             .count(),
+        isProgress: (parent) => {
+            const { id } = parent;
+            return prisma.applies({
+                where: {
+                    AND: [
+                        {
+                            progress: true
+                        },
+                        {
+                            post: {
+                                id
+                            }
+                        }
+                    ]
+                }
+            });
+        }
     }
 };

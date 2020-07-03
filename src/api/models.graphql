@@ -44,6 +44,7 @@ type Post {
     isApplyReadCheck: Boolean
     applysCount: Int!
     applysReadCount: Int!
+    isProgress: Boolean
     createdAt: String
     updatedAt: String
 }
