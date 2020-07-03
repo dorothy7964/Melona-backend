@@ -104,6 +104,27 @@ export default {
             })
             .aggregate()
             .count(),
+        isProgress: (parent, _, { request }) => {
+            const { user } = request;
+            const { id } = parent;
+            return prisma.$exists.apply({
+                AND: [
+                    {
+                        user: {
+                            id: user.id
+                        }
+                    },
+                    {
+                        post: {
+                            id
+                        }
+                    },
+                    {
+                        progress: true
+                    }
+                ]
+            });
+            },
         commentCount: parent =>
             prisma
             .commentsConnection({
@@ -111,22 +132,5 @@ export default {
             })
             .aggregate()
             .count(),
-        isProgress: (parent) => {
-            const { id } = parent;
-            return prisma.applies({
-                where: {
-                    AND: [
-                        {
-                            progress: true
-                        },
-                        {
-                            post: {
-                                id
-                            }
-                        }
-                    ]
-                }
-            });
-        }
     }
 };
