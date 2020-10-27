@@ -20,7 +20,7 @@ const sendMail = (email) => {
 
 export const sendSecretMail = (address, secret ) => {
     const email = {
-        from: "melona@prismagram.com",
+        from: "admin@melona.com",
         to: address,
         subject: "🔒 Login Secret for Melona 🔒",
         html: `Hello! Your login secret is <strong>${secret}</strong>.<br/>Copy paste on the app/website to log in`

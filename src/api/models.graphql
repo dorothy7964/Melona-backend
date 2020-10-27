@@ -42,9 +42,9 @@ type Post {
     isApply: Boolean
     isApplyWait: Boolean
     isApplyReadCheck: Boolean
+    isProgress: Boolean
     applysCount: Int!
     applysReadCount: Int!
-    isProgress: Boolean
     createdAt: String
     updatedAt: String
 }
