@@ -1,13 +1,14 @@
 # 올 때 메로나
+
 소액 대행 서비스 프로젝트 입니다. <br/><br/>
 [frontend Github 바로가기](https://github.com/dorothy7964/melona_frontend "frontend Github 바로가기") <br/>
-[app Github 바로가기](https://github.com/dorothy7964/melona-app "app Github 바로가기") 
+[app Github 바로가기](https://github.com/dorothy7964/melona-app "app Github 바로가기")
 
 <br/><br/>
 
 ### 주요 기능
 
-1. 비밀번호 암호화 
+1. 비밀번호 암호화
 2. 로그인 시 토큰 인증 및 해석
 3. 임시 비밀번호 이메일로 받기
 4. AWS S3를 사용하여 사진 저장
@@ -15,6 +16,7 @@
 <br/><br/>
 
 ### Backend Stack
+
 - NodeJS
 - Prisma
 - GraphQL
@@ -27,7 +29,7 @@
 
 <!-- Install Code -->
 
-``` js
+```js
 $ yarn add nodemon -D
 ```
 
@@ -40,12 +42,12 @@ nodemon 은 파일을 저장할 때마다 실행을 새로 해주는 도구 입�
 
 <!-- Install Code -->
 
-``` js
+```js
 $ yarn add @babel-cli
 ```
 
 babel은 es6코드를 es5로 바꿔주는 도구 입니다. <br/>
-아직 지원되지 않는 곳들이 있어서 못생긴 코드로 바꿔줘야 합니다.  <br/>
+아직 지원되지 않는 곳들이 있어서 못생긴 코드로 바꿔줘야 합니다. <br/>
 
 <br/><br/>
 
@@ -53,12 +55,13 @@ babel은 es6코드를 es5로 바꿔주는 도구 입니다. <br/>
 
 <!-- Install Code -->
 
-``` js
+```js
 $ yarn add @babel/node
 ```
 
-babel-node는 Node.js CLI와 정확히 동일하게 작동하는 CLI로, 실행하기 전에 Babel 사전 설정 및 플러그인으로 컴파일할 수 있는 부가적인 이점이 있습니다.
-
+요약 : 콘솔에서 JS 파일을 실행 <br />
+babel-node는 Node.js CLI와 정확히 동일하게 작동하는 CLI로, <br />
+실행하기 전에 Babel 사전 설정 및 플러그인으로 컴파일할 수 있는 부가적인 이점이 있습니다. <br />
 
 <br/><br/>
 
@@ -66,11 +69,14 @@ babel-node는 Node.js CLI와 정확히 동일하게 작동하는 CLI로, 실행�
 
 <!-- Install Code -->
 
-``` js
+```js
 $ yarn add @babel/preset-env
 ```
 
-ECMAScript5+ 버전 호환성을 위하여 정의된 플러그인의 집합 입니다.
+요약 : 코드 업데이트 <br />
+ECMAScript5+ 버전 호환성을 위하여 정의된 플러그인의 집합 입니다. <br/>
+작성한 코드가 괜찮은지 변환되어야 하는지 판단 해줍니다. <br />
+문법에 대해 세부 작업을 할 필요 없이 최신 자바스크립트 문법을 사용할 수 있도록 해줍니다. <br />
 
 <br/><br/>
 
@@ -78,7 +84,7 @@ ECMAScript5+ 버전 호환성을 위하여 정의된 플러그인의 집합 입�
 
 <!-- Install Code -->
 
-``` js
+```js
 $ yarn add @babel/core
 ```
 
@@ -90,7 +96,7 @@ Babel을 사용하기 위한 플러그인 (babel.config.js) 입니다.
 
 <!-- Install Code -->
 
-``` js
+```js
 $ yarn add morgan
 ```
 
@@ -102,7 +108,7 @@ morgan 이라는 미들웨어를 추가하고 logger(로깅 전문 모듈) 입�
 
 <!-- Install Code -->
 
-``` js
+```js
 $ yarn add dotenv
 ```
 
@@ -115,12 +121,13 @@ prisma 를 시작하지 전 dotenv 설치 합니다. <br/>
 
 <!-- Install Code -->
 
-``` js
+```js
 $ yarn add graphql-yoga
 ```
 
 의존성 모듈(dependency)들을 설치 합니다. <br/>
-graphql-yoga를 사용하기 때문에 express는 필요 없습니다.
+graphql-yoga를 사용하기 때문에 express는 필요 없습니다. <br/>
+현재 apollo 업데이트로 서버를 사용할 수 있고 셋업도 쉬워졌다.
 
 <br/><br/>
 
@@ -128,7 +135,7 @@ graphql-yoga를 사용하기 때문에 express는 필요 없습니다.
 
 <!-- Install Code -->
 
-``` js
+```js
 $ yarn add graphql-tools
 ```
 
@@ -140,7 +147,7 @@ graphql 파일 분리 하려면 필요 합니다.
 
 <!-- Install Code -->
 
-``` js
+```js
 $ yarn add prisma-client-lib
 ```
 
@@ -151,24 +158,24 @@ prisma 와 정보를 주고 받습니다.
 
 <!-- Example Code -->
 
-``` js
-import { prisma } from '../../../../generated/prisma-client';
+```js
+import { prisma } from "../../../../generated/prisma-client";
 
 export default {
-    Query: {
-        sayHello: async() => {
-            console.log(await prisma.users());  // console.log
-            return "Hello";
-        }
+  Query: {
+    sayHello: async () => {
+      console.log(await prisma.users()); // console.log
+      return "Hello";
     }
-}
+  }
+};
 ```
 
 <br/>
 
 **실행**
 
-``` js
+```js
 $ yarn dev
 ```
 
@@ -178,20 +185,21 @@ $ yarn dev
 
 <!-- Install Code -->
 
-``` js
+```js
 $ yarn add merge-graphql-schemas
 ```
 
 graphql 파일 분리 하려면 필요 합니다.
 
 <br/><br/>
+
 <!--ㅇㅇㅇㅇㅇㅇㅇㅇ -->
 
-## 만약  babel/cli -D  로 설치 했을 경우 제거해주기
+## 만약 babel/cli -D 로 설치 했을 경우 제거해주기
 
 <!-- Install Code -->
 
-``` js
+```js
 $ yarn remove babel-cli
 $ yarn global remove babel-cli
 ```
@@ -206,11 +214,12 @@ $ yarn global remove babel-cli
 
 <!-- Example Code -->
 
-``` js
+```js
 {
     "ext": "js graphql"
 }
 ```
+
 이 파일에 ext 라는 걸 추가 합니다. <br/>
 nodemon이 감시해야 할 파일의 확장자들을 지정할 수 있습니다.
 
@@ -220,7 +229,7 @@ nodemon이 감시해야 할 파일의 확장자들을 지정할 수 있습니다
 
 <!-- Example Code -->
 
-``` js
+```js
 {
 // ~/wam-prj/prismagram/.gitignore
 
@@ -298,22 +307,22 @@ build
 
 <!-- Example Code -->
 
-``` js
-PORT=4000
+```js
+PORT = 4000;
 ```
 
 ### .babelrc 파일 생성
 
 <!-- Example Code -->
 
-``` js
+```js
 {
     "presets": ["@babel/preset-env"]
 }
 ```
 
 babelrc 파일에 presets 작성하기 <br/>
-가장 최신의 프리셋인 @babel/preset-env 를 사용 합니다. 
+가장 최신의 프리셋인 @babel/preset-env 를 사용 합니다.
 
 <br/><br/>
 
@@ -321,8 +330,8 @@ babelrc 파일에 presets 작성하기 <br/>
 
 <!-- Example Code -->
 
-``` js
-import dotenv from 'dotenv';
+```js
+import dotenv from "dotenv";
 dotenv.config();
 ```
 
@@ -332,18 +341,18 @@ dotenv.config();
 
 <!-- Example Code -->
 
-``` js
-import path from "path";  
+```js
+import path from "path";
 
-import { makeExecutableSchema } from "graphql-tools";  
+import { makeExecutableSchema } from "graphql-tools";
 import { fileLoader, mergeResolvers, mergeTypes } from "merge-graphql-schemas";
 
 const allTypes = fileLoader(path.join(__dirname, "/api/**/*.graphql"));
 const allResolvers = fileLoader(path.join(__dirname, "/api/**/*.js"));
 
 const schema = makeExecutableSchema({
-    typeDefs: mergeTypes(allTypes),
-    resolvers: mergeResolvers(allResolvers)
+  typeDefs: mergeTypes(allTypes),
+  resolvers: mergeResolvers(allResolvers)
 });
 
 export default schema;
@@ -359,13 +368,13 @@ export default schema;
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/prismagram/src/schema.js
 
-import path from "path";  // 설명[3-1]
+import path from "path"; // 설명[3-1]
 
 // 설명[1]
-import { makeExecutableSchema } from "graphql-tools";  
+import { makeExecutableSchema } from "graphql-tools";
 import { fileLoader, mergeResolvers, mergeTypes } from "merge-graphql-schemas";
 
 // 설명[3]
@@ -374,8 +383,8 @@ const allResolvers = fileLoader(path.join(__dirname, "/api/**/*.js"));
 
 // 설명[2]
 const schema = makeExecutableSchema({
-    typeDefs: mergeTypes(allTypes),
-    resolvers: mergeResolvers(allResolvers)
+  typeDefs: mergeTypes(allTypes),
+  resolvers: mergeResolvers(allResolvers)
 });
 
 // 설명[4]
@@ -386,8 +395,8 @@ export default schema;
 
 <!-- Example Code -->
 
-``` js
-import { makeExecutableSchema } from "graphql-tools";  
+```js
+import { makeExecutableSchema } from "graphql-tools";
 import { fileLoader, mergeResolvers, mergeTypes } from "merge-graphql-schemas";
 ```
 
@@ -399,10 +408,10 @@ graphql-tools, merge-graphql-schemas 설치해 준 것들을 불러와 줍니다
 
 <!-- Example Code -->
 
-``` js
+```js
 const schema = makeExecutableSchema({
-    typeDefs: mergeTypes(allTypes),
-    resolvers: mergeResolvers(allResolvers)
+  typeDefs: mergeTypes(allTypes),
+  resolvers: mergeResolvers(allResolvers)
 });
 ```
 
@@ -412,31 +421,31 @@ allTypes 라는 변수를 만들고 이 변수는 fileLoader 함수의 결과물
 
  <br/>
 
-
 **설명[3]**
 
 [참고] api 폴더 밑에는 resolver 가 아닌 js 파일을 두면 안됩니다! <br/>
-api 폴더 밑에는 resolver 나 graphql 아닌 파일을 두지 않기!  <br/>
+api 폴더 밑에는 resolver 나 graphql 아닌 파일을 두지 않기! <br/>
 
 <!-- Example Code -->
 
-``` js
+```js
 const allTypes = fileLoader(path.join(__dirname, "/api/**/*.graphql"));
 const allResolvers = fileLoader(path.join(__dirname, "/api/**/*.js"));
 ```
-fileLoader 함수의 인자로 path.join(__dirname, "/api/**/*.graphql") 을 입력
-** 는 모든 폴더고, *.graphql 은 모든 .graphql 파일 입니다.  <br/>
 
-다시말해 api 폴더 밑의 모든 폴더에 속해있고 .graphql 로 끝나는 모든 파일들을 가져오는 것 입니다.  <br/>
+fileLoader 함수의 인자로 path.join(\_\_dirname, "/api/**/\*.graphql") 을 입력
+** 는 모든 폴더고, \*.graphql 은 모든 .graphql 파일 입니다. <br/>
 
-같은 방식으로 allResolvers 를 만들기  <br/>
-이렇게 하면 아주 긴 파일경로를 입력하게 되는 것 입니다.  <br/>
+다시말해 api 폴더 밑의 모든 폴더에 속해있고 .graphql 로 끝나는 모든 파일들을 가져오는 것 입니다. <br/>
+
+같은 방식으로 allResolvers 를 만들기 <br/>
+이렇게 하면 아주 긴 파일경로를 입력하게 되는 것 입니다. <br/>
 api 폴더 밑에 모든 폴더의 파일들 중 .js 로 끝나는 파일들을 입력하기
 
 <br/>
 
-``` js
-import path from "path";  // 설명[3-1]
+```js
+import path from "path"; // 설명[3-1]
 ```
 
 fileLoader 함수의 인자로 파일의 경로를 입력 해야 합니다. <br/>
@@ -448,7 +457,7 @@ path 모듈을 import 하기
 
 <!-- Example Code -->
 
-``` js
+```js
 export default schema;
 ```
 
@@ -456,11 +465,11 @@ export default schema;
 
 <br/><br/>
 
-### package.json 
+### package.json
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/prismagram/package.json
 
 {
@@ -479,9 +488,9 @@ export default schema;
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/prismagram/package.json
-    
+
 "scripts": {
 	  "dev": "nodemon --exec babel-node src/server.js",
 	  "deploy": "prisma deploy",
@@ -498,7 +507,7 @@ export default schema;
 
 <!-- Example Code -->
 
-``` js
+```js
 $ yarn dev
 ```
 
@@ -506,18 +515,17 @@ $ yarn dev
 
 # Datamodel & Migrations 배포
 
-
 <!-- Example Code -->
 
-``` js
+```js
 $ prisma deploy
 ```
 
-package.json 에 `"prisma": "yarn run deploy && yarn run generate",`  작성하고 아래 처럼 배포해도 됩니다.
+package.json 에 `"prisma": "yarn run deploy && yarn run generate",` 작성하고 아래 처럼 배포해도 됩니다.
 
 <!-- Example Code -->
 
-``` js
+```js
 $ yarn prisma
 ```
 
@@ -529,19 +537,19 @@ $ yarn prisma
 
 <!-- Install Code -->
 
-``` js
+```js
 $ yarn global add windows-build-tools
 ```
+
 윈도우에서 필수인 c, c++ 관련된 것들과 파이썬같은 것을 설치해서 다른 언어를 사용하는 라이브러리르 지원할 수 있게 해줍니다.
 
 <br/>
 
 ### 터미널에서 설치
 
-
 <!-- Install Code -->
 
-``` js
+```js
 $ yarn global add node-pre-gyp
 $ yarn add bcrypt@3.0.6
 $ yarn add @types/bcrypt --dev
@@ -555,11 +563,11 @@ $ yarn add @types/bcrypt --dev
 
 <!-- Example Code -->
 
-``` js
-const bcrypt = require('bcrypt');
+```js
+const bcrypt = require("bcrypt");
 const saltRounds = 10;
-const myPlaintextPassword = 's0/\/\P4$$w0rD';
-const someOtherPlaintextPassword = 'not_bacon';
+const myPlaintextPassword = "s0//P4$$w0rD";
+const someOtherPlaintextPassword = "not_bacon";
 ```
 
 saltRounds = salt 를 만들 때의 10자리인 Salt 를 만들어 달라는 것 입니다.
@@ -570,11 +578,11 @@ saltRounds = salt 를 만들 때의 10자리인 Salt 를 만들어 달라는 것
 
 <!-- Example Code -->
 
-``` js
+```js
 bcrypt.genSalt(saltRounds, function(err, salt) {
-    bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
-        // Store hash in your password DB.
-    });
+  bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
+    // Store hash in your password DB.
+  });
 });
 ```
 
@@ -587,25 +595,26 @@ Salt 를 이용해서 비밀번호 암호화 하기
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/prismagram/src/passwordMatch.js
 
 import bcrypt from "bcrypt";
 
-export const hashPassword = (password, saltRounds) => bcrypt.hash(password, saltRounds);
+export const hashPassword = (password, saltRounds) =>
+  bcrypt.hash(password, saltRounds);
 ```
 
 **bcrypt.hash 설명**
 
 <!-- Example Code -->
 
-``` js
+```js
 // 참고
 const hash = bcrypt.hashSync(myPlaintextPassword, saltRounds);
-             bcrypt.hash(password, 10);
+bcrypt.hash(password, 10);
 ```
 
-첫 번째 인자 myPlaintextPassword  에는  비밀번호를 보내주고 <br/>
+첫 번째 인자 myPlaintextPassword 에는 비밀번호를 보내주고 <br/>
 두 번째 인자 saltRounds 에는 salt 를 만들 때의 5자리인 Salt 를 만들어 달라는 것 입니다.
 
 <br/>
@@ -614,7 +623,7 @@ const hash = bcrypt.hashSync(myPlaintextPassword, saltRounds);
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/prismagram/src/api/User/createAccount/createAccount.graphql
 
 type Mutation {
@@ -635,45 +644,45 @@ type Query {
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/prismagram/src/api/User/createAccount/createAccount.js
 
-import { prisma } from '../../../../generated/prisma-client';
+import { prisma } from "../../../../generated/prisma-client";
 import { hashPassword } from "../../../passwordMatch";
 
 export default {
-    Mutation: {
-        createAccount: async(_, args) => {
-						const { email, userName, password, avatar } = args;
-            
-            const ExistUserName = await prisma.$exists.user({
-                userName
-            });
-            const ExistEmail = await prisma.$exists.user({
-                email
-            });
+  Mutation: {
+    createAccount: async (_, args) => {
+      const { email, userName, password, avatar } = args;
 
-            if (ExistUserName) {
-                throw Error("이미 있는 이름 입니다.");
-            } else if (ExistEmail) {
-                throw Error("이미 있는 이메일 입니다.");
-            }
+      const ExistUserName = await prisma.$exists.user({
+        userName
+      });
+      const ExistEmail = await prisma.$exists.user({
+        email
+      });
 
-            try {
-                const hsPassword = await hashPassword(password, 5)
-                await prisma.createUser({
-                    email, 
-                    userName, 
-                    password: hsPassword, 
-                    avatar
-                });
-                return true;   
-            } catch(e) {
-                console.log(e);
-                return false;
-            }
-        }
+      if (ExistUserName) {
+        throw Error("이미 있는 이름 입니다.");
+      } else if (ExistEmail) {
+        throw Error("이미 있는 이메일 입니다.");
+      }
+
+      try {
+        const hsPassword = await hashPassword(password, 5);
+        await prisma.createUser({
+          email,
+          userName,
+          password: hsPassword,
+          avatar
+        });
+        return true;
+      } catch (e) {
+        console.log(e);
+        return false;
+      }
     }
+  }
 };
 ```
 
@@ -681,11 +690,11 @@ export default {
 
 <!-- Example Code -->
 
-``` js
+```js
 import { hashPassword } from "../../../passwordMatch";
 
 const { email, userName, password, avatar } = args;
-const hsPassword = await hashPassword(password, 5)
+const hsPassword = await hashPassword(password, 5);
 ```
 
 아래 와 같이 `passwordMatch.js` 에서 hashPassword 함수를 불러오게 되면 <br/>
@@ -697,11 +706,12 @@ const hsPassword = await hashPassword(password, 5)
 
 <!-- Example Code -->
 
-``` js
+```js
 // passwordMatch.js
 import bcrypt from "bcrypt";
 
-export const hashPassword = (password, saltRounds) => bcrypt.hash(password, saltRounds);
+export const hashPassword = (password, saltRounds) =>
+  bcrypt.hash(password, saltRounds);
 ```
 
 <br/>
@@ -710,12 +720,12 @@ export const hashPassword = (password, saltRounds) => bcrypt.hash(password, salt
 
 <!-- Example Code -->
 
-``` js
+```js
 await prisma.createUser({
-    email, 
-    userName, 
-    password: hsPassword, 
-    avatar
+  email,
+  userName,
+  password: hsPassword,
+  avatar
 });
 ```
 
@@ -739,7 +749,7 @@ passport 를 설치하고 설정만 해주면 모든 인증 기능을 사용할 
 
 <!-- Install Code -->
 
-``` js
+```js
 yarn add passport-jwt passport
 ```
 
@@ -758,7 +768,7 @@ passport 는 인증 관련 모든 일을 합니다. <br/>
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/melona-backend/src/passport.js
 
 import passport from "passport";
@@ -766,30 +776,30 @@ import { Strategy, ExtractJwt } from "passport-jwt";
 import { prisma } from "../generated/prisma-client";
 
 const jwtOptions = {
-    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: process.env.JWT_SECRET
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey: process.env.JWT_SECRET
 };
 
 const verifyUser = async (payload, done) => {
-    try {
-        const user = await prisma.user({ id: payload.id });
-        if (user !== null) {
-            return done(null, user);
-        } else {
-            return done(null, false);
-        }
-    } catch (error) {
-        return done(error, false);
+  try {
+    const user = await prisma.user({ id: payload.id });
+    if (user !== null) {
+      return done(null, user);
+    } else {
+      return done(null, false);
     }
+  } catch (error) {
+    return done(error, false);
+  }
 };
 
 export const authenticateJwt = (req, res, next) =>
-    passport.authenticate("jwt", { sessions: false }, (error, user) => {
-        if (user) {
-            req.user = user;
-        }
-        next();
-    })(req, res, next);
+  passport.authenticate("jwt", { sessions: false }, (error, user) => {
+    if (user) {
+      req.user = user;
+    }
+    next();
+  })(req, res, next);
 
 passport.use(new Strategy(jwtOptions, verifyUser));
 passport.initialize();
@@ -797,10 +807,10 @@ passport.initialize();
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/melona-backend/.env
 
-JWT_SECRET = "랜덤 문자열 넣어주면 된다."
+JWT_SECRET = "랜덤 문자열 넣어주면 된다.";
 ```
 
 <br/>
@@ -811,7 +821,7 @@ JWT_SECRET = "랜덤 문자열 넣어주면 된다."
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/melona-backend/src/server.js
 
 import "./env";
@@ -827,16 +837,15 @@ console.log(process.env.PORT);
 
 // [2]
 const server = new GraphQLServer({
-    schema,
-    context: ({ request }) => ({ request })
+  schema,
+  context: ({ request }) => ({ request })
 });
-
 
 server.express.use(logger("dev"));
 server.express.use(authenticateJwt);
 
-server.start(
-    { port: PORT }, () => console.log(`✔ Server running on http://localhost:${PORT}`)
+server.start({ port: PORT }, () =>
+  console.log(`✔ Server running on http://localhost:${PORT}`)
 );
 ```
 
@@ -844,20 +853,20 @@ server.start(
 
 <!-- Example Code -->
 
-``` js
+```js
 import "./passport";
 ```
+
 passport.js 파일에 passport 모듈이 import 되어 있습니다. <br/>
-server.js 에서는 passport.js 파일에서 무언가를 받아서 사용할 필요가 없습니다. 
+server.js 에서는 passport.js 파일에서 무언가를 받아서 사용할 필요가 없습니다.
 
 <br/>
 
 **authenticateJwt 설명**
 
-
 <!-- Example Code -->
 
-``` js
+```js
 import { authenticateJwt } from "./passport";
 
 server.express.use(authenticateJwt);
@@ -871,10 +880,10 @@ authenticateJwt 를 실행하게 해줍니다.
 
 <!-- Example Code -->
 
-``` js
-const server = new GraphQLServer({     
+```js
+const server = new GraphQLServer({
   schema,
-	context: ({ request }) => ({ request })
+  context: ({ request }) => ({ request })
 });
 ```
 
@@ -891,8 +900,8 @@ context 는 resolver 사이에서 정보를 공유할 때 사용한다.
 
 <!-- Install Code -->
 
-``` js
-$ yarn add jsonwebtoken 
+```js
+$ yarn add jsonwebtoken
 ```
 
 `jwt.sign(payload, secretOrPrivateKey, [options, callback])` <br/>
@@ -906,7 +915,7 @@ sign 함수를 실행할 때 payload 를 입력 해야 합니다. <br/>
 
 <!-- Example Code -->
 
-``` js
+```js
 // jwt.sign(payload, secretOrPrivateKey, [options, callback])
 jwt.sign({ id }, process.env.JWT_SECRET);
 ```
@@ -917,12 +926,12 @@ jwt.sign({ id }, process.env.JWT_SECRET);
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/melona-backend/src/generateToken.js
 
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
-export const generateToken = id => jwt.sign({ id }, process.env.JWT_SECRET);
+export const generateToken = (id) => jwt.sign({ id }, process.env.JWT_SECRET);
 ```
 
 <br/><br/>
@@ -931,13 +940,15 @@ export const generateToken = id => jwt.sign({ id }, process.env.JWT_SECRET);
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/melona-backend/src/passwordMatch.js
 
 import bcrypt from "bcrypt";
 
-export const hashPassword = (password, saltRounds) => bcrypt.hash(password, saltRounds);
-export const passwordMatch = (password, userPassword) => bcrypt.compare(password, userPassword);
+export const hashPassword = (password, saltRounds) =>
+  bcrypt.hash(password, saltRounds);
+export const passwordMatch = (password, userPassword) =>
+  bcrypt.compare(password, userPassword);
 ```
 
 <br/>
@@ -946,7 +957,7 @@ export const passwordMatch = (password, userPassword) => bcrypt.compare(password
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/melona-backend/src/api/User/confirmPassword/confirmPassword.graphql
 
 type Mutation {
@@ -956,29 +967,29 @@ type Mutation {
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/melona-backend/src/api/User/confirmPassword/confirmPassword.js
 
 import { prisma } from "../../../../generated/prisma-client";
 import { generateToken } from "../../../generateToken";
 import { passwordMatch } from "../../../passwordMatch";
 
- export default {
-    Mutation: {
-        confirmPassword: async (_, args) => {
-            const { email, password } = args;
-            const user = await prisma.user({ email });
-            if (!user){
-                throw Error("유저가 없습니다.");
-            }
-            const passwordConfirm = await passwordMatch(password, user.password);
-            if (!passwordConfirm){
-                throw Error("비밀번호가 틀립니다.");
-            }
+export default {
+  Mutation: {
+    confirmPassword: async (_, args) => {
+      const { email, password } = args;
+      const user = await prisma.user({ email });
+      if (!user) {
+        throw Error("유저가 없습니다.");
+      }
+      const passwordConfirm = await passwordMatch(password, user.password);
+      if (!passwordConfirm) {
+        throw Error("비밀번호가 틀립니다.");
+      }
 
-            return generateToken(user.id);
-        }
+      return generateToken(user.id);
     }
+  }
 };
 ```
 
@@ -988,7 +999,7 @@ import { passwordMatch } from "../../../passwordMatch";
 
 <!-- Example Code -->
 
-``` js
+```js
 const { email, password } = args;
 const user = await prisma.user({ email });
 ```
@@ -1001,7 +1012,7 @@ const user = await prisma.user({ email });
 
 <!-- Example Code -->
 
-``` js
+```js
 import { passwordMatch } from "../../../passwordMatch";
 
 const passwordConfirm = await passwordMatch(password, user.password);
@@ -1013,11 +1024,12 @@ Boolean 값은 passwordConfirm 변수에 넣으면 됩니다.
 
 <!-- Example Code -->
 
-``` js
+```js
 // passwordMatch.js
 import bcrypt from "bcrypt";
 
-export const passwordMatch = (password, userPassword) => bcrypt.compare(password, userPassword);
+export const passwordMatch = (password, userPassword) =>
+  bcrypt.compare(password, userPassword);
 ```
 
 <br/>
@@ -1026,7 +1038,7 @@ export const passwordMatch = (password, userPassword) => bcrypt.compare(password
 
 <!-- Example Code -->
 
-``` js
+```js
 import { generateToken } from "../../../generateToken";
 
 return generateToken(user.id);
@@ -1036,11 +1048,11 @@ return generateToken(user.id);
 
 <!-- Example Code -->
 
-``` js
+```js
 // generateToken.js
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
-export const generateToken = id => jwt.sign({ id }, process.env.JWT_SECRET);
+export const generateToken = (id) => jwt.sign({ id }, process.env.JWT_SECRET);
 ```
 
 <br/><br/>
@@ -1049,14 +1061,14 @@ export const generateToken = id => jwt.sign({ id }, process.env.JWT_SECRET);
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/melona-backend/src/middlewares.js
 
-export const isAuthenticated = request => {
-    if (!request.user) {
-        throw Error("You need to log in to perform this action");
-    }
-    return;
+export const isAuthenticated = (request) => {
+  if (!request.user) {
+    throw Error("You need to log in to perform this action");
+  }
+  return;
 };
 ```
 
@@ -1067,29 +1079,29 @@ express middeleware 는 아니고 graphQl middleware 랑 같은 것 입니다. <
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/prismagram/src/server.js
-  
-  import "./env";
-  import { GraphQLServer } from "graphql-yoga";
-  import logger from "morgan";
-  import schema from "./schema";
-  import "./passport";
-  import { authenticateJwt } from "./passport";
-	import { isAuthenticated } from "./middlewares";  
-  
-  const PORT = process.env.PORT || 4000;
-    
-  const server = new GraphQLServer({    
-      schema,
-      context: ({ request }) => ({ request, isAuthenticated  })
-  });
-  
-  server.express.use(logger("dev"));
-  server.express.use(authenticateJwt);
-  server.start(
-      { port: PORT }, () => console.log(`✔ Server running on http://localhost:${PORT}`)
-  );
+
+import "./env";
+import { GraphQLServer } from "graphql-yoga";
+import logger from "morgan";
+import schema from "./schema";
+import "./passport";
+import { authenticateJwt } from "./passport";
+import { isAuthenticated } from "./middlewares";
+
+const PORT = process.env.PORT || 4000;
+
+const server = new GraphQLServer({
+  schema,
+  context: ({ request }) => ({ request, isAuthenticated })
+});
+
+server.express.use(logger("dev"));
+server.express.use(authenticateJwt);
+server.start({ port: PORT }, () =>
+  console.log(`✔ Server running on http://localhost:${PORT}`)
+);
 ```
 
 만약 server.js에 isAuthenticated 를 추가하지 않는다면 각 파일마다 import 해줘야 합니다.
@@ -1098,11 +1110,11 @@ express middeleware 는 아니고 graphQl middleware 랑 같은 것 입니다. <
 
 # 임시 비밀번호 보내기 (Nodemailer 사용)
 
-### 이메일을 보내기 위해 nodemailer 설치 
+### 이메일을 보내기 위해 nodemailer 설치
 
 <!-- Install Code -->
 
-``` js
+```js
 $ yarn add nodemailer
 $ yarn add nodemailer-sendgrid-transport
 ```
@@ -1113,7 +1125,7 @@ $ yarn add nodemailer-sendgrid-transport
 
 <!-- Example Code -->
 
-``` js
+```js
 // sending-email-nodemailer-sendgrid
 
 var nodemailer = require('nodemailer');
@@ -1164,48 +1176,48 @@ var client = nodemailer.createTransport({
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/melona-backend/.env
 
-SENDGRID_USERNAME = "sendgrid 사이트의 UserName 넣으면 된다."
-SENDGRID_PASSWORD = "sendgrid 사이트의 Password 넣으면 된다."
+SENDGRID_USERNAME = "sendgrid 사이트의 UserName 넣으면 된다.";
+SENDGRID_PASSWORD = "sendgrid 사이트의 Password 넣으면 된다.";
 ```
 
 <br/>
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/melona-backend/src/utils.js
 
 import { adjectives, nouns } from "./words";
-import nodemailer from "nodemailer";                    
+import nodemailer from "nodemailer";
 import sgTransport from "nodemailer-sendgrid-transport";
 
 export const generatorSecret = () => {
-    const randomNumber = Math.floor(Math.random() * adjectives.length);
-    return `${adjectives[randomNumber]}${nouns[randomNumber]}`;
+  const randomNumber = Math.floor(Math.random() * adjectives.length);
+  return `${adjectives[randomNumber]}${nouns[randomNumber]}`;
 };
 
 const sendMail = (email) => {
-    const options = {
-        auth: {
-            api_user: process.env.SENDGRID_USERNAME,
-            api_key: process.env.SENDGRID_PASSWORD
-        }
-    };
-    const client = nodemailer.createTransport(sgTransport(options));
-    return client.sendMail(email);
+  const options = {
+    auth: {
+      api_user: process.env.SENDGRID_USERNAME,
+      api_key: process.env.SENDGRID_PASSWORD
+    }
+  };
+  const client = nodemailer.createTransport(sgTransport(options));
+  return client.sendMail(email);
 };
 
-export const sendSecretMail = (address, secret ) => {
-    const email = {
-        from: "admin@melona.com",
-        to: address,
-        subject: "🔒 Login Secret for Melona 🔒",
-        html: `Hello! Your login secret is <strong>${secret}</strong>.<br/>Copy paste on the app/website to log in`
-    };
-    return sendMail(email);
+export const sendSecretMail = (address, secret) => {
+  const email = {
+    from: "admin@melona.com",
+    to: address,
+    subject: "🔒 Login Secret for Melona 🔒",
+    html: `Hello! Your login secret is <strong>${secret}</strong>.<br/>Copy paste on the app/website to log in`
+  };
+  return sendMail(email);
 };
 ```
 
@@ -1215,16 +1227,16 @@ export const sendSecretMail = (address, secret ) => {
 
 <!-- Example Code -->
 
-``` js
-console.log(process.env.SENDGRID_USERNAME,process.env.SENDGRID_PASSWORD);
+```js
+console.log(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
 
 const sendMail = (email) => {
-    const options = {
-        auth: {
-            api_user: process.env.SENDGRID_USERNAME,
-            api_key: process.env.SENDGRID_PASSWORD
-        }
-    };
+  const options = {
+    auth: {
+      api_user: process.env.SENDGRID_USERNAME,
+      api_key: process.env.SENDGRID_PASSWORD
+    }
+  };
 };
 ```
 
@@ -1234,19 +1246,19 @@ const sendMail = (email) => {
 
 <!-- Example Code -->
 
-``` js
+```js
 import nodemailer from "nodemailer";
 import sgTransport from "nodemailer-sendgrid-transport";
 
 const sendMail = (email) => {
-    const options = {
-        auth: {
-            api_user: process.env.SENDGRID_USERNAME,
-            api_key: process.env.SENDGRID_PASSWORD
-        }
-    };
-    const client = nodemailer.createTransport(sgTransport(options));
-    return client.sendMail(email);
+  const options = {
+    auth: {
+      api_user: process.env.SENDGRID_USERNAME,
+      api_key: process.env.SENDGRID_PASSWORD
+    }
+  };
+  const client = nodemailer.createTransport(sgTransport(options));
+  return client.sendMail(email);
 };
 ```
 
@@ -1262,15 +1274,15 @@ transport 가 대신 알아서 해줍니다.
 
 <!-- Example Code -->
 
-``` js
-export const sendSecretMail = (address, secret ) => {
-    const email = {
-        from: "melona@melona.com",
-        to: address,
-        subject: "🔒 Login Secret for Melona 🔒",
-        html: `Hello! Your login secret is <strong>${secret}</strong>.<br/>Copy paste on the app/website to log in`
-    };
-    return sendMail(email);
+```js
+export const sendSecretMail = (address, secret) => {
+  const email = {
+    from: "melona@melona.com",
+    to: address,
+    subject: "🔒 Login Secret for Melona 🔒",
+    html: `Hello! Your login secret is <strong>${secret}</strong>.<br/>Copy paste on the app/website to log in`
+  };
+  return sendMail(email);
 };
 ```
 
@@ -1278,18 +1290,17 @@ sendSecretMail 를 사용하고 sendMail 은 외부 에서 사용 하지 않으�
 
 <br/><br/>
 
-
 # AWS S3를 사용하여 사진 저장
 
-### Access key 백엔드 env  파일에 넣어주기
+### Access key 백엔드 env 파일에 넣어주기
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/melona-backend/src/.env
 
-AWS_KEY="Access key 넣어주면 된다."
-AWS_SECRET="Secret access key 넣어주면 된다."
+AWS_KEY = "Access key 넣어주면 된다.";
+AWS_SECRET = "Secret access key 넣어주면 된다.";
 ```
 
 버킷 생성 후 AWS_KEY와 AWS_SECRET 넣어주기
@@ -1300,7 +1311,7 @@ AWS_SECRET="Secret access key 넣어주면 된다."
 
 <!-- Install Code -->
 
-``` js
+```js
 $ yarn add multer-s3
 $ yarn add aws-sdk
 ```
@@ -1311,42 +1322,40 @@ $ yarn add aws-sdk
 
 <!-- Example Code -->
 
-``` js
+```js
 // ~/wam-prj/melona-backend/src/upload.js
 
 import multer from "multer";
 import multerS3 from "multer-s3";
 import aws from "aws-sdk";
 
-const s3 = new aws.S3({  
-    accessKeyId: process.env.AWS_KEY,         // 생성한 s3의 accesskey
-    secretAccessKey: process.env.AWS_SECRET,  // 생성한 s3의 secret key
-    region: "ap-northeast-2"                  // 지역설정
+const s3 = new aws.S3({
+  accessKeyId: process.env.AWS_KEY, // 생성한 s3의 accesskey
+  secretAccessKey: process.env.AWS_SECRET, // 생성한 s3의 secret key
+  region: "ap-northeast-2" // 지역설정
 });
 
-const upload = multer({ 
-    storage: multerS3({
-        s3,
-				acl: 'public-read',          // 업로드 된 데이터를 URL로 읽을 때 설정하는 값입니다. 업로드만 한다면 필요없습니다.
-        bucket: "melona.cf",   // s3 생성시 버킷명
-        metadata: function (req, file, cb) {
-            cb(null, {fieldName: file.fieldname});  // 파일 메타정보를 저장합니다.
-        },
-        key: function (req, file, cb) {
-            cb(null, Date.now().toString())
-        }  
-    }) 
+const upload = multer({
+  storage: multerS3({
+    s3,
+    acl: "public-read", // 업로드 된 데이터를 URL로 읽을 때 설정하는 값입니다. 업로드만 한다면 필요없습니다.
+    bucket: "melona.cf", // s3 생성시 버킷명
+    metadata: function(req, file, cb) {
+      cb(null, { fieldName: file.fieldname }); // 파일 메타정보를 저장합니다.
+    },
+    key: function(req, file, cb) {
+      cb(null, Date.now().toString());
+    }
+  })
 });
-export const uploadMiddleware = upload.single("file");;
+export const uploadMiddleware = upload.single("file");
 
 export const uploadController = (req, res) => {
-    const { file: { location } } = req;
-    res.json({ location });
+  const {
+    file: { location }
+  } = req;
+  res.json({ location });
 };
 ```
 
 <br/><br/>
-
-
-
-
