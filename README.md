@@ -125,6 +125,7 @@ prisma 를 시작하지 전 dotenv 설치 합니다. <br/>
 $ yarn add graphql-yoga
 ```
 
+요약 : create-react-app의 graqlQL 버전 <br/>
 의존성 모듈(dependency)들을 설치 합니다. <br/>
 graphql-yoga를 사용하기 때문에 express는 필요 없습니다. <br/>
 현재 apollo 업데이트로 서버를 사용할 수 있고 셋업도 쉬워졌다.
