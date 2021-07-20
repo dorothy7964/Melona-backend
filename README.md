@@ -128,7 +128,9 @@ $ yarn add graphql-yoga
 요약 : create-react-app의 graqlQL 버전 <br/>
 의존성 모듈(dependency)들을 설치 합니다. <br/>
 graphql-yoga를 사용하기 때문에 express는 필요 없습니다. <br/>
-현재 apollo 업데이트로 서버를 사용할 수 있고 셋업도 쉬워졌다.
+현재(2021기준) apollo 업데이트로 서버를 사용할 수 있고 셋업도 쉬워졌습니다.
+참고: graphql-yoga는 Apollo 서버 위에 동작한다. <br/>
+중간단계를 생략하고 곧바로 Apollo 서버로 시작해보자
 
 <br/><br/>
 
